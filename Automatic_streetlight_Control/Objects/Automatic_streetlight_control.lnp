@@ -1,0 +1,3 @@
+".\Objects\Automatic_street_light.obj" 
+TO ".\Objects\Automatic_streetlight_control" 
+PRINT(".\Listings\Automatic_streetlight_control.m51") CODE( 0X0000-0X0FFF )

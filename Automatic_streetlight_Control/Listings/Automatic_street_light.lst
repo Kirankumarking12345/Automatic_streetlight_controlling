@@ -1,0 +1,60 @@
+C51 COMPILER V9.60.0.0   AUTOMATIC_STREET_LIGHT                                            03/12/2022 18:38:41 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE AUTOMATIC_STREET_LIGHT
+OBJECT MODULE PLACED IN .\Objects\Automatic_street_light.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe Automatic_street_light.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\Automatic_street_light.lst) TABS(2) OBJECT(.\Objects\Automatic_street_light.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          // sensors on street 
+   3          sbit sensor1 = P1^0;
+   4          sbit sensor2 = P1^1;
+   5          sbit sensor3 = P1^2;
+   6          //Street light connections
+   7          sbit load1 = P2^0;
+   8          sbit load2 = P2^1;
+   9          sbit load3 = P2^2;
+  10          
+  11          void main()
+  12          {
+  13   1        load1 = load2 = load3 =0;
+  14   1        sensor1 = sensor2 = sensor3 = 0; //optional logic based on input
+  15   1        while(1)
+  16   1        {
+  17   2          if(sensor1==1)
+  18   2          {
+  19   3            load1 = 1; //light 1 on 
+  20   3            load2 = 0; //light 2 off
+  21   3            load3 = 0; //light 3 off
+  22   3          }
+  23   2          if(sensor2==1)
+  24   2          {
+  25   3            load1 = 0; //light 1 off 
+  26   3            load2 = 1; //light 2 on
+  27   3            load3 = 0; //light 3 off
+  28   3          }
+  29   2          if(sensor3==1)
+  30   2          {
+  31   3            load1 = 0; //light 1 off 
+  32   3            load2 = 0; //light 2 off
+  33   3            load3 = 1; //light 3 on
+  34   3          }
+  35   2        }
+  36   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     41    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
